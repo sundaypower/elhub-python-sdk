@@ -18,4 +18,4 @@ The package needs the following environment variables:
 **WSDL files**
 WSDL files will point against SoapUI Mock services or ElHub environment.
 - WSDL_QUERY
-- WSDL_POOL_METERING
+- WSDL_POLL_METERING

@@ -56,7 +56,7 @@ def test_poll_consumption():
     Returns:
 
     """
-    client, history = APIClient.get_zeep_client(wsdl=WSDL_FILES_CONFIG['POOL_METERING'], secure=False)
+    client, history = APIClient.get_zeep_client(wsdl=WSDL_FILES_CONFIG['POLL_METERING'], secure=False)
     response = poll_consumption(client, history, THIRD_PARTY_GSN)
     assert response
 
