@@ -3,6 +3,10 @@ Settings module
 """
 import logging.config
 from os import getenv
+from dotenv import load_dotenv
+
+load_dotenv()  #
+
 
 logging.config.dictConfig(
     {

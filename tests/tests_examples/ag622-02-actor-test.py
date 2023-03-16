@@ -62,7 +62,9 @@ def extended_storage():
 
 
 if __name__ == "__main__":
-    logger.debug(f"Initiating tests with identificator: {METER_IDENTIFICATOR}")
+    # logger.debug(f"Initiating tests with identificator: {METER_IDENTIFICATOR}")
     # response = add_third_party()
     # response = get_consumption()
+
     response = extended_storage()
+    print(response)

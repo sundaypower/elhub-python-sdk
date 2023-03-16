@@ -11,11 +11,12 @@ logger = logging.getLogger()
 logging.basicConfig(level=logging.DEBUG)
 
 
-METER_IDENTIFICATOR = TEST_METER_IDENTIFICATORS["profiled"][1]
+METER_IDENTIFICATOR = TEST_METER_IDENTIFICATORS["profiled"][0]
 
 
 def update_third_party():
     logger.info("Adding profiled meter as third party")
+    logger.info("Key and cert file")
     client, history = APIClient.get_zeep_client(
         wsdl=WSDL_FILES_CONFIG_TEST['MARKET_PROCESSES'], secure=True, key_file=KEY_FILE, cert_file=CERT_FILE
     )
@@ -57,7 +58,10 @@ def remove_third_party():
 
 
 if __name__ == "__main__":
-    logger.debug(f"Initiating tests with identificator: {METER_IDENTIFICATOR}")
+    from dotenv import load_dotenv
+
+    # load_dotenv()  #
+    # logger.debug(f"Initiating tests with identificator: {METER_IDENTIFICATOR}")
     # response = update_third_party()
     # print(response)
 
@@ -65,4 +69,4 @@ if __name__ == "__main__":
     # print(response)
 
     response = remove_third_party()
-    # print(response)
+    print(response)

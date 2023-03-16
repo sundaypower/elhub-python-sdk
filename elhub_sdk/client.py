@@ -2,12 +2,16 @@
 ElHub API client
 """
 from datetime import datetime, timedelta
+import logging
 from typing import Tuple
 
 from zeep import Client, Settings
 from zeep.plugins import HistoryPlugin
 from zeep.wsse import utils
 from zeep.wsse.signature import BinarySignature
+
+logger = logging.getLogger()
+logging.basicConfig(level=logging.DEBUG)
 
 
 class APIClient:
