@@ -3,7 +3,7 @@ import logging
 from elhub_sdk.client import APIClient
 from elhub_sdk.consumption import poll_consumption
 from elhub_sdk.enums import THIRD_PARTY_ACTION
-from elhub_sdk.settings import CERT_FILE, KEY_FILE, WSDL_FILES_CONFIG_TEST
+from elhub_sdk.settings import CERT_FILE, KEY_FILE, WSDL_FILES_CONFIG, WSDL_FILES_CONFIG_TEST
 from elhub_sdk.third_party import request_action
 from tests.tests_examples.config import TEST_METER_IDENTIFICATORS, THIRD_PARTY_GSN_EXA
 
@@ -11,7 +11,7 @@ logger = logging.getLogger()
 logging.basicConfig(level=logging.DEBUG)
 
 
-METER_IDENTIFICATOR = TEST_METER_IDENTIFICATORS["non_profiled"][0]
+METER_IDENTIFICATOR = 707057500052880873
 
 
 def add_third_party():
@@ -33,7 +33,7 @@ def get_consumption():
     """
     logger.debug("Getting consumption...")
     client, history = APIClient.get_zeep_client(
-        wsdl=WSDL_FILES_CONFIG_TEST['POLL_METERING'], secure=True, key_file=KEY_FILE, cert_file=CERT_FILE
+        wsdl=WSDL_FILES_CONFIG['POLL_METERING'], secure=True, key_file=KEY_FILE, cert_file=CERT_FILE
     )
 
     response = poll_consumption(client, history, THIRD_PARTY_GSN_EXA)
@@ -62,9 +62,10 @@ def extended_storage():
 
 
 if __name__ == "__main__":
-    # logger.debug(f"Initiating tests with identificator: {METER_IDENTIFICATOR}")
+    logger.debug(f"Initiating tests with identificator: {METER_IDENTIFICATOR}")
     # response = add_third_party()
-    # response = get_consumption()
-
-    response = extended_storage()
-    print(response)
+    response = get_consumption()
+    logger.debug("Response..")
+    logger.debug(response)
+    #response = extended_storage()
+    #print(response)

@@ -82,7 +82,7 @@
 
     <wsdl:service name="MeteringValuesPollingService">
         <wsdl:port binding="tns:MeteringValuesPollingSoapBinding" name="MeteringValuesPolling">
-            <soap:address location="http://localhost:8083/WebService/services/PollMeteringValues"/>
+            <soap:address location="https://service.elhub.no:8200/WebService/services/PollMeteringValues"/>
         </wsdl:port>
     </wsdl:service>
 

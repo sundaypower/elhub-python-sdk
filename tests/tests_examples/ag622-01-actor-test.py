@@ -60,13 +60,13 @@ def remove_third_party():
 if __name__ == "__main__":
     from dotenv import load_dotenv
 
-    # load_dotenv()  #
-    # logger.debug(f"Initiating tests with identificator: {METER_IDENTIFICATOR}")
-    # response = update_third_party()
-    # print(response)
+    load_dotenv()  #
+    logger.debug(f"Initiating tests with identificator: {METER_IDENTIFICATOR}")
+    #response = update_third_party()
+    #print(response)
 
-    # response = get_consumption()
-    # print(response)
-
-    response = remove_third_party()
+    response = get_consumption()
     print(response)
+
+    #response = remove_third_party()
+    #print(response)
